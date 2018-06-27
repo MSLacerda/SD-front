@@ -39,7 +39,6 @@ class Ta extends Component {
 
   callNext() {
     callNext().then((response) => {
-      console.log(response);
       this.setState({
         hideMessages: true,
         actual: response.data.ticket
