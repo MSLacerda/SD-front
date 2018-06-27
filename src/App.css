@@ -34,3 +34,8 @@
 .pointer {
   cursor: pointer;
 }
+
+
+.full-height {
+  height: 100%;
+}
