@@ -1,5 +1,6 @@
 import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:9000');
+import {API_URL} from './constants';
+const socket = openSocket(API_URL);
 
 function sendToNext(ticket) {
     socket.emit('setNext', ticket);
