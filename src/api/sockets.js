@@ -5,13 +5,13 @@ function sendToNext(ticket) {
     socket.emit('setNext', ticket);
 }
 
-function subscribeNextTicket(cb) {
-    socket.on('receivenext', data => {
+function subscribeChannel(cb, channel) {
+    socket.on(channel, data => {
         cb(null, data);
     });
 }
 
 export {
     sendToNext,
-    subscribeNextTicket
+    subscribeChannel
 };

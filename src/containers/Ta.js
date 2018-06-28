@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Segment, Icon, Message, Header, Statistic, Container } from 'semantic-ui-react';
-import { subscribeNextTicket } from '../api/sockets';
+import { subscribeChannel } from '../api/sockets';
 import { fetchNext, callNext } from '../api/services';
 import "../App.css";
 
@@ -16,9 +16,9 @@ class Ta extends Component {
 
   componentDidMount() {
     this.fetchNext();
-    subscribeNextTicket((err, data) => {
+    subscribeChannel((err, data) => {
       this.fetchNext();
-    });
+    }, 'receivenext');
   }
 
   fetchNext() {
@@ -57,7 +57,7 @@ class Ta extends Component {
 
     return (
       <Container>
-        <Grid textAlign='center' padded>
+        <Grid textAlign='center' verticalAlign='middle' className="full-height" padded>
           <Grid.Row centered columns={2}>
             <Grid.Column textAlign='center'>
               <Statistic color="yellow">

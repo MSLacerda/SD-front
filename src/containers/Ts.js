@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Statistic } from 'semantic-ui-react';
 import { Segment, Icon, Message, Header, Container } from 'semantic-ui-react';
 import { createNormal, createPriority } from '../api/services';
-import  { sendToNext } from '../api/sockets';
+import { sendToNext } from '../api/sockets';
 import "../App.css";
 
 
@@ -61,29 +61,25 @@ class Ts extends Component {
 
     render() {
         return (
-            <Container>
-                <Grid padded>
-                    <Grid.Row centered columns={1}>
-                        <Grid.Column>
-                            <Header size='huge' className="center-text">
+            <Grid padded verticalAlign='middle' className="full-height">
+                <Grid.Row centered columns={1}>
+                    <Grid.Column>
+                        <Segment>
+                            <Statistic size='huge' className="center-text">
                                 {this.state.ticket}
-                            </Header>
-                        </Grid.Column>
-                    </Grid.Row>
-                    <Grid.Row centered columns={1}>
-                        <Grid.Column>
-                            <Segment.Group horizontal>
-                                <Segment color='yellow' onClick={() => this.generateTicket(PRIORITY)} className="center-text pointer">Prioritaria</Segment>
-                                <Segment color='green' onClick={() => this.generateTicket(NORMAL)} className="center-text pointer">Normal</Segment>
-                            </Segment.Group>
-                            <Message hidden={this.state.hideMessages} positive={this.state.success} warning={this.state.failed} attached='bottom'>
-                                <Icon name='check' />
-                                {this.state.message}
-                            </Message>
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
-            </Container>
+                            </Statistic>
+                        </Segment>
+                        <Segment.Group horizontal>
+                            <Segment color='yellow' onClick={() => this.generateTicket(PRIORITY)} className="center-text pointer">Prioritaria</Segment>
+                            <Segment color='green' onClick={() => this.generateTicket(NORMAL)} className="center-text pointer">Normal</Segment>
+                        </Segment.Group>
+                        <Message hidden={this.state.hideMessages} positive={this.state.success} warning={this.state.failed} attached='bottom'>
+                            <Icon name='check' />
+                            {this.state.message}
+                        </Message>
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
         );
     }
 }
