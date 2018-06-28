@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:9000/"
+const API_URL = "https://sd-backend.herokuapp.com/"
 
 export {
     API_URL
