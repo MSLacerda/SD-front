@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu ,Container } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 export default class Navbar extends Component {
@@ -12,6 +12,7 @@ export default class Navbar extends Component {
 
         return (
             <Menu pointing secondary>
+                <Container>
                 <Menu.Item 
                     as={Link}
                     to='/'
@@ -43,6 +44,7 @@ export default class Navbar extends Component {
                     active={activeItem === 'TV'}
                     onClick={this.handleItemClick}
                 />
+                </Container>
             </Menu>
         )
     }
